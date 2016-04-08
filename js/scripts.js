@@ -11,12 +11,27 @@ class Pizza {
       this.SizeToCost = {Small: 1, Medium: 2, Large: 4}
     }
   logArray(){
-    console.log(this.ToppingsArray);
+    return console.log(this.ToppingsArray);
+  }
+  checkInput(nameIn){
+    var flag = true;
+    for (var i=0;i<14;i++){
+      if (this.ToppingsToArray[nameIn]===i){
+      }
+      else {
+        flag = false;
+      }      
+    }
+    if (flag===true){
+      this.addTopping(nameIn)
+    }
   }
   addTopping(nameIn){
+    if (this.ToppingsToArray[nameIn]===true){
     var indexToAdd = this.ToppingsToArray[nameIn];
     this.ToppingsArray[indexToAdd]+=1;
     return ("added "+nameIn+" to ToppingsArray["+indexToAdd+"]");
+    }
   }
   	// calculateCost
   	returnCost(){
@@ -34,9 +49,46 @@ class Pizza {
 // test of
 test = new Pizza("Large");
 
-console.log(test.addTopping("Chicken"));
-console.log(test.addTopping("Onions"));
-test.logArray();
-console.log(test.returnCost());
+$(function(event){
+  $("#submit").click(function(event){
+    myPizza = new Pizza("Large");
+      var top = $("input:checkbox[name=q1]:checked").val();
+      myPizza.checkInput(top);
+      top = $("input:checkbox[name=q2]:checked").val();
+      myPizza.checkInput(top);
+      myPizza.logArray();
+      // myPizza.logArray();
+
+      // choices[1] = $("input:radio[name=q2]:checked").val();
+      // choices[2] = $("input:radio[name=q3]:checked").val();
+      // choices[3] = $("input:radio[name=q4]:checked").val();
+      // choices[4] = $("input:radio[name=q5]:checked").val();
+    event.preventDefault();
+
+  });
+});
 
 
+
+// console.log(test.addTopping("Chicken"));
+// console.log(test.addTopping("Onions"));
+// test.logArray();
+// console.log(test.returnCost());
+
+// var input = $( "form input:radio" )
+//   .wrap( "<span></span>" )
+//   .parent()
+//     .css({
+//       background: "yellow",
+//       border: "3px red solid"
+//     });
+ 
+// $( "div" )
+//   .text( "For this type jQuery found " + input.length + "." )
+//   .css( "color", "red" );
+ 
+// // Prevent form submission
+// $( "form" ).submit(function( event ) {
+
+//   event.preventDefault();
+// });
