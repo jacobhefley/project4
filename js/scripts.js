@@ -1,90 +1,42 @@
-//Pizza 
-// var myobj = {
-//   "name": ["Crust","Sauce","Cheese","Pepperoni","Sausage","Ham","Bacon","Chicken","Onions","Mushrooms","Peppers","Olives","Pineapple","Spinach"],
-//   "value": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-//   "cost": [2,1,1,1,1,1,1,1,0.5,0.5,0.5,0.5,0.5,0.5]
-// }
-
-// alert(myobj['employee'][1]); // Outputs "amit"
-
-// .indexof()
-
-
-
 class Pizza {
 	constructor(size) {
-		this.PizzaSize = size;
-    	this.PizzaToppings = [];
-    	this.PizzaToppings[0] = 1; // prevent errors to amke sure every pizza has a crust, so if this.Pizza Topping[0] = 1 ERROR
-    	this.PizzaCost = 0;
-    	this.Toppings = 
+		  this.PizzaSize = size;
+    	this.ToppingsArray = new Int8Array (14);
+      this.ToppingsArray[0]= 1; // need crust to have a pizza, so if this.Pizza Topping[0] = 1 ERROR
+      this.ToppingsArray[1]= 1;
+      this.ToppingsArray[2]= 1;
+      this.ToppingsToArray = {Crust: 0, Sauce: 1, Cheese: 2, Pepperoni: 3, Sausage: 4, Ham: 5, Bacon: 6, Chicken: 7, Onions: 8, Mushrooms: 9, Peppers: 10, Olives: 11, Pineapple: 12, Spinach: 13};
     	this.ToppingsToCost = {Crust: 2, Sauce: 1, Cheese: 1, Pepperoni: 1, Sausage: 1, Ham: 1, Bacon: 1, Chicken: 1, Onions: 0.5, Mushrooms: 0.5, Peppers: 0.5, Olives: 0.5, Pineapple: 0.5, Spinach: 0.5};
+      this.ArrayToCost = {0: 2, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 0.5, 9: 0.5, 10: 0.5, 11: 0.5, 12: 0.5, 13: 0.5};
+      this.SizeToCost = {Small: 1, Medium: 2, Large: 4}
     }
-//     	 = {
-//   							"name": ["Crust","Sauce","Cheese","Pepperoni","Sausage","Ham","Bacon","Chicken","Onions","Mushrooms","Peppers","Olives","Pineapple","Pineapple"],
-//   							"value": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-//   							"cost": [2,1,1,1,1,1,1,1,0.5,0.5,0.5,0.5,0.5,0.5]
-// }
-  	addTopping(nameIn){
-  		// check if nameIn is typeof String 
-  		// var temp = this.Toppings.('name').indexof(nameIn);
-  		return this.ToppingsToCost[nameIn];
-
-
-  	}
-  	// ArraytoTopping(){
-
-
-  	// }
-
+  logArray(){
+    console.log(this.ToppingsArray);
+  }
+  addTopping(nameIn){
+    var indexToAdd = this.ToppingsToArray[nameIn];
+    this.ToppingsArray[indexToAdd]+=1;
+    return ("added "+nameIn+" to ToppingsArray["+indexToAdd+"]");
+  }
   	// calculateCost
   	returnCost(){
-  		return this.PizzaCost;
-  	}
-  	// returnSize()
+      var cost = 2;
+      for(var i=1;i<8;i++){
+        cost+=this.ToppingsArray[i];
+      }
+      for(var j =8; j<14; j++){
+        cost+=((this.ToppingsArray[j])/2);
+      }
+      cost+=this.SizeToCost[this.PizzaSize];
+      return cost;
+    }
 }
+// test of
+test = new Pizza("Large");
 
-class Cheese extends Pizza {
-	constructor(size) {
-    	this.efficentArray = new Int8Array(9);
-  	}
-	
-}
-
-class Pepperoni extends Pizza {
-		constructor(size) {
-		this.PizzaSize = size;
-    	this.PizzaToppings = [];
-    	this.PizzaCost = 6;
-
-  	}
-
-}
-
-class Supreme extends Pizza {
-	
-}
-
-class Custom extends Pizza {
-	
-}
-
-class Topping {
-	constructor(toppingID){
-		this.toppingID= topppingID;
-		this.choices= 0;
-	}
-	toppingMap(){
-
-	}
-
-
-}
-
-test = new Pizza(0);
-
-console.log(test.addTopping("Crust"));
-
-
+console.log(test.addTopping("Chicken"));
+console.log(test.addTopping("Onions"));
+test.logArray();
+console.log(test.returnCost());
 
 
