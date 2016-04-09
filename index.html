@@ -16,44 +16,53 @@
     	<!-- body of page -->
     	<div class="container">
     		<form class="form">
+          <div class="form-group">
+          <label class="control-label">size</label>
+          <select class=form-control id=size>
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+          </select>           
+          </div>
         		<div class="form-group">
           			<h3>Build Your Own Pizza!</h3>
           			<div class="checkbox">
-            			<label><input type="checkbox" name="q1" value="Pepperoni">Pepperoni</label>
+            			<label><input type="checkbox" name="check" value="Pepperoni">Pepperoni</label>
           			</div>
           			<div class="checkbox">
-            			<label><input type="checkbox" name="q2" value="Sausage">Sausage</label>
+            			<label><input type="checkbox" name="check" value="Sausage">Sausage</label>
           			</div>
           			<div class="checkbox">
-            			<label><input type="checkbox" name="q3" value="Ham">Ham</label>
+            			<label><input type="checkbox" name="check" value="Ham">Ham</label>
           			</div>
           			<div class="checkbox">
-            			<label><input type="checkbox" name="q4" value="Bacon">Bacon</label>
+            			<label><input type="checkbox" name="check" value="Bacon">Bacon</label>
           			</div>
           			<div class="checkbox">
-            			<label><input type="checkbox" name="q5" value="Chicken">Chicken</label>
+            			<label><input type="checkbox" name="check" value="Chicken">Chicken</label>
           			</div>
           			<div class="checkbox">
-            			<label><input type="checkbox" name="q6" value="Onions">Onions</label>
+            			<label><input type="checkbox" name="check" value="Onions">Onions</label>
           			</div>
           			<div class="checkbox">
-            			<label><input type="checkbox" name="q7" value="Mushrooms">Mushrooms</label>
+            			<label><input type="checkbox" name="check" value="Mushrooms">Mushrooms</label>
           			</div>
           			<div class="checkbox">
-            			<label><input type="checkbox" name="q8" value="Peppers">Peppers</label>
+            			<label><input type="checkbox" name="check" value="Peppers">Peppers</label>
           			</div>
           			<div class="checkbox">
-            			<label><input type="checkbox" name="q9" value="Olives">Olives</label>
+            			<label><input type="checkbox" name="check" value="Olives">Olives</label>
           			</div>
           			<div class="checkbox">
-            			<label><input type="checkbox" name="q10" value="Pineapple">Pineapple</label>
+            			<label><input type="checkbox" name="check" value="Pineapple">Pineapple</label>
           			</div>
           			<div class="checkbox">
-            			<label><input type="checkbox" name="q11" value="Spinach">Spinach</label>
+            			<label><input type="checkbox" name="check" value="Spinach">Spinach</label>
           			</div>
         		</div>
         	</form>
         	<button id="submit" class="btn btn-lg btn-success pull-right">Submit</button>
+          <h2 id="output"></h2>
       </div>
 	</body>
 </html>
